@@ -1,0 +1,15 @@
+footer {
+  background: black;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.login-form-wrapper {
+  background: #cfcfcf;
+}
+
+.invalid {
+  border: solid red 1px;
+}
