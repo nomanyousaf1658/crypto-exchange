@@ -11,6 +11,7 @@ function Header(props) {
                     <Link className="nav-link" to="/">Home</Link>
                     <Link className="nav-link" to="/login">Login</Link>
                     <Link className="nav-link" to="/">About Us</Link>
+                    <Link className="nav-link" to="blog">Blog</Link>
                     {(props.loggedInUser?.email) ? <Link className="nav-link" to="/">Logout</Link> : ''}
                 </Nav>
             </Container>

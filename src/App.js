@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Home from './components/Home';
+import Blog from './components/Blog';
 import Login from './components/Login';
 import Header from './components/partial/Header';
 import Footer from './components/partial/Footer';
@@ -23,6 +24,7 @@ function App() {
             <Route path="login" element={<Login users={users} addLoggedInUser={addLoggedInUser} />} />
             <Route path="signup" element={<Signup users={users} addUser={addUser} />} />
             <Route path="/" element={<Home />} />
+            <Route path="blog" element={<Blog />} />
           </Route>
         </Routes>
         <Footer />
