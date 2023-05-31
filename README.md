@@ -47,4 +47,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ![signup](https://github.com/nomanyousaf1658/crypto-exchange/assets/15228113/adbc7ece-4edf-4e7c-8861-361aeed11aab)
 
 
+![image](https://github.com/nomanyousaf1658/crypto-exchange/assets/15228113/7ab3b562-7b2e-4741-8325-9d89c43a7bc2)
+
 
