@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { json, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
-
-import { loggedInUser as LoggedInAction, users as reduxUsersAction } from './redux/actions/userAction';
+// import { loggedInUser as LoggedInAction, users as reduxUsersAction } from './redux/actions/userAction';
 
 
 function TransferCoin(props) {
@@ -13,8 +12,8 @@ function TransferCoin(props) {
     const [transferQty, updateTransfer] = useState(0);
     const [transferToEmail, updateTransferToEmail] = useState(null);
 
-    const dispatchLoggedInUserAction = useDispatch();
-    const dispatchAllUsersAction = useDispatch();
+    // const dispatchLoggedInUserAction = useDispatch();
+    // const dispatchAllUsersAction = useDispatch();
 
 
 
@@ -34,7 +33,7 @@ function TransferCoin(props) {
 
     const canTransferToUsers = () => {
         return allUsers.filter((user) => {
-            return user.email != loggedInUser.email;
+            return user.email !== loggedInUser.email;
         });
     }
 
@@ -42,8 +41,8 @@ function TransferCoin(props) {
         e.preventDefault();
 
         //Find index From & To users Indexes   
-        const transferFromUserIndex = allUsers.findIndex((obj => obj.email == loggedInUser.email));
-        const transferToUserIndex = allUsers.findIndex((obj => obj.email == transferToEmail));
+        const transferFromUserIndex = allUsers.findIndex((obj => obj.email === loggedInUser.email));
+        const transferToUserIndex = allUsers.findIndex((obj => obj.email === transferToEmail));
 
         if (allUsers[transferFromUserIndex].coin_qty <= 0) {
             alert("No more coins to transfer");
