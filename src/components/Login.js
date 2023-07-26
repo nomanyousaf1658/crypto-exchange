@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import {useDispatch} from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { loggedInUser } from './redux/actions/userAction';
 
 function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [invalidAttempts, setInvalidAttempts] = useState(0);
     const maxAttempts = 3;
+    const navigate = useNavigate();
+    const dispatchLoggedInUserAction = useDispatch();
 
     const loginhandler = (e) => {
         e.preventDefault();
@@ -21,6 +26,9 @@ function Login(props) {
                 if (userToLogin[0].password === password) {
                     props.addLoggedInUser(userToLogin[0]);
                     alert("user logged in successfully.");
+                    navigate('/')
+                    //Dispatch
+                    dispatchLoggedInUserAction(loggedInUser(userToLogin[0]));
                 } else {
                     setInvalidAttempts(invalidAttempts + 1);
                 }

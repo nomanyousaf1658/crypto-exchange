@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { users } from './redux/actions/userAction';
+import {useDispatch} from 'react-redux';
 
 function Signup(props) {
     // Form Inputs
@@ -9,21 +11,29 @@ function Signup(props) {
     const [password, setPassword] = useState('');
     const [address, setAddress] = useState('');
     const [cnic, setCnic] = useState('');
+    const dispatchUsersAction = useDispatch();
 
     const signUpHandler = (e) => {
         e.preventDefault();
         if (!name || !email || !password || !address || !cnic) {
             alert("Validation failed");
         } else {
-            props.addUser([...props.users, {
+            const userToSave = {
                 'name': name,
                 'email': email,
                 'password': password,
                 'address': address,
-                'cnic': cnic
-            }]);
+                'cnic': cnic,
+                'coin_qty': Math.floor(Math.random() * (20 - 2 + 1) + 2),
+                'coin_rate': Math.floor(Math.random() * (1000 - 100 + 1) + 2)
+            };
+            props.addUser([...props.users, userToSave]);
 
             alert("User registered successfully.");
+
+            //Dispatch
+            dispatchUsersAction(users([...props.users, userToSave]));
+
             //Empty Fields
             setName('');
             setEmail('');
